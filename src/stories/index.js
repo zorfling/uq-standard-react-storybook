@@ -14,7 +14,69 @@ storiesOf('Welcome', module).add('to Storybook', () => (
 const buttonStories = storiesOf('Button', module);
 
 buttonStories.addDecorator(withKnobs);
+buttonStories.addDecorator(story => (
+  <div
+    style={{
+      textAlign: 'center'
+    }}
+  >
+    {story()}
+  </div>
+));
+
 buttonStories
+  .add('all styles', () => {
+    const darkOption = boolean('Dark?', false);
+    const buttonProp = {
+      dark: darkOption
+    };
+    return (
+      <div
+        style={{
+          paddingTop: '16px',
+          backgroundColor: darkOption ? '#494949' : '#fff'
+        }}
+      >
+        <Button {...buttonProp}>Button</Button>
+        <br />
+        <Button primary {...buttonProp}>
+          Button primary
+        </Button>
+        <br />
+        <Button secondary {...buttonProp}>
+          Button secondary
+        </Button>
+        <br />
+        <Button warning {...buttonProp}>
+          Button warning
+        </Button>
+        <br />
+        <Button danger {...buttonProp}>
+          Button danger
+        </Button>
+        <br />
+        <Button outline {...buttonProp}>
+          Button outline
+        </Button>
+        <br />
+        <Button outline primary {...buttonProp}>
+          Button outline primary
+        </Button>
+        <br />
+        <Button link {...buttonProp}>
+          Button link
+        </Button>
+        <br />
+        <Button link primary {...buttonProp}>
+          Button link primary
+        </Button>
+        <br />
+        <Button link danger {...buttonProp}>
+          Button link danger
+        </Button>
+      </div>
+    );
+  })
   .add('with knobs', () => {
     const buttonText = text('Label', 'Button');
     const buttonStyle = select(
@@ -37,14 +99,25 @@ buttonStories
       },
       ''
     );
+
+    const darkOption = boolean('Dark?', false);
+
     const buttonProp = {
       [buttonStyle]: buttonStyle,
-      [buttonType]: buttonType
+      [buttonType]: buttonType,
+      dark: darkOption
     };
     return (
-      <Button {...buttonProp} onClick={action('clicked')}>
-        {buttonText}
-      </Button>
+      <div
+        style={{
+          paddingTop: '16px',
+          backgroundColor: darkOption ? '#494949' : '#fff'
+        }}
+      >
+        <Button {...buttonProp} onClick={action('clicked')}>
+          {buttonText}
+        </Button>
+      </div>
     );
   })
   .add('default', () => <Button onClick={action('clicked')}>Button</Button>)

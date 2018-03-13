@@ -52,7 +52,7 @@ const buttonStyles = props => {
   if (props.outline) {
     styles = {
       ...styles,
-      backgroundColor: '#fff',
+      backgroundColor: 'transparent',
       borderWidth: '2px',
       borderStyle: 'solid',
       borderColor:
@@ -60,13 +60,33 @@ const buttonStyles = props => {
       color:
         styles.backgroundColor !== '#f5f5f5' ? styles.backgroundColor : '#222'
     };
+
+    if (props.dark) {
+      styles = {
+        ...styles,
+        borderColor: '#fff',
+        color: '#fff'
+      };
+    }
   }
   if (props.link) {
+    if (props.dark) {
+      styles = {
+        ...styles,
+        color:
+          props.primary || props.secondary || props.warning || props.danger
+            ? styles.backgroundColor
+            : '#fff'
+      };
+    }
+
     styles = {
       ...styles,
-      backgroundColor: '#fff',
+      backgroundColor: 'transparent',
       color:
-        styles.backgroundColor !== '#f5f5f5' ? styles.backgroundColor : '#222'
+        props.primary || props.secondary || props.warning || props.danger
+          ? styles.backgroundColor
+          : props.dark ? '#fff' : '#222'
     };
   }
 
