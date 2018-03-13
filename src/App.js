@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Button from './components/Button';
+import CssButton from './components/CssButton';
 
 class App extends Component {
   render() {
@@ -37,6 +38,32 @@ class App extends Component {
           <Button link danger>
             Button link danger
           </Button>
+          <br />
+          <CssButton>CssButton</CssButton>
+          <br />
+          <CssButton primary>CssButton primary</CssButton>
+          <br />
+          <CssButton secondary>CssButton secondary</CssButton>
+          <br />
+          <CssButton warning>CssButton warning</CssButton>
+          <br />
+          <CssButton danger>CssButton danger</CssButton>
+          <br />
+          <CssButton outline>CssButton outline</CssButton>
+          <br />
+          <CssButton outline primary>
+            CssButton outline primary
+          </CssButton>
+          <br />
+          <CssButton link>CssButton link</CssButton>
+          <br />
+          <CssButton link primary>
+            CssButton link primary
+          </CssButton>
+          <br />
+          <CssButton link danger>
+            CssButton link danger
+          </CssButton>
           <br />
           To get started, edit <code>src/App.js</code> and save to reloady.
         </p>
