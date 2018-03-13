@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import './CssButton.css';
 
 const CssButton = props => {
@@ -44,6 +46,27 @@ const CssButton = props => {
       {props.children}
     </a>
   );
+};
+
+CssButton.propTypes = {
+  children: PropTypes.string.isRequired,
+  primary: PropTypes.bool,
+  secondary: PropTypes.bool,
+  warning: PropTypes.bool,
+  danger: PropTypes.bool,
+  outline: PropTypes.bool,
+  link: PropTypes.bool,
+  dark: PropTypes.bool
+};
+
+CssButton.defaultProps = {
+  primary: false,
+  secondary: false,
+  warning: false,
+  danger: false,
+  outline: false,
+  link: false,
+  dark: false
 };
 
 export default CssButton;
