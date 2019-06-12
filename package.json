@@ -9,11 +9,11 @@
   },
   "scripts": {
     "start-cra": "react-scripts start",
-    "build": "react-scripts build",
+    "build-cra": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "start": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public",
+    "build": "build-storybook -s public",
     "deploy-storybook": "storybook-to-ghpages"
   },
   "devDependencies": {
